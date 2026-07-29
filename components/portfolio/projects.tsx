@@ -43,7 +43,7 @@ function AcademicCard({ project }: { project: AcademicProject }) {
   return (
     <a
       href={project.href}
-      className="group flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-primary/60"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-primary/60"
     >
       {project.image ? (
         <div className="relative aspect-[16/10] overflow-hidden bg-zinc-950">
@@ -89,7 +89,7 @@ function WorldCupProjectCard() {
   return (
     <a
       href={WORLD_CUP.href}
-      className="group flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-emerald-500/40"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-emerald-500/40"
     >
       <WorldCupCardDashboard />
 
