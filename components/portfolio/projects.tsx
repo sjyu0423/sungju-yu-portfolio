@@ -1,13 +1,99 @@
 import { ArrowUpRight } from "lucide-react"
 
-const PROJECT = {
+const MACROLENS = {
   name: "MacroLens",
   tagline: "AI-Powered Macro Tracker",
   description:
-    "An AI-powered macro tracker built to eliminate the headache of manually logging meals. Instead of searching databases, you can just snap a photo or speak your food, and the app uses GPT-4o-mini to instantly calculate your exact macros. I engineered it with a secure serverless backend, real-time cloud syncing, and a smart history feature that remembers your go-to meals.",
+    "An AI-native Progressive Web App for frictionless macro tracking. Snap a photo or speak your meal and GPT-4o-mini calculates macros instantly — routed through a secure Vercel Serverless proxy so API keys never hit the client, with real-time Supabase cloud sync keeping daily logs and targets consistent across devices.",
   tags: ["React", "Vite", "OpenAI", "Supabase", "Vercel Serverless", "PWA"],
   image: "/projects/macrolens-placeholder.png",
   href: "/projects/macrolens",
+}
+
+type AcademicProject = {
+  name: string
+  tagline: string
+  description: string
+  tags: string[]
+  image?: string
+  href: string
+}
+
+const ACADEMIC_PROJECTS: AcademicProject[] = [
+  {
+    name: "pop",
+    tagline: "Mobile Social App",
+    description:
+      "A cross-platform mobile application developed as part of university coursework. Built with Flutter and a real-time Supabase backend to enable spontaneous moment sharing.",
+    tags: ["Flutter", "Supabase", "Dart", "Academic"],
+    image: "/projects/pop.png",
+    href: "#",
+  },
+  {
+    name: "Machine Learning Project",
+    tagline: "Machine Learning & Data Analysis",
+    description:
+      "Engineered a machine learning model for coursework prediction and analysis. Handled data preprocessing, model training, and performance evaluation.",
+    tags: ["Python", "Machine Learning", "Scikit-Learn", "Academic"],
+    href: "#",
+  },
+]
+
+function AcademicCard({ project }: { project: AcademicProject }) {
+  return (
+    <a
+      href={project.href}
+      className="group flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-primary/60"
+    >
+      {project.image ? (
+        <div className="relative aspect-[16/10] overflow-hidden bg-zinc-950">
+          <img
+            src={project.image}
+            alt={`${project.name} — ${project.tagline}`}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      ) : (
+        <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-zinc-800 bg-[radial-gradient(ellipse_at_center,rgba(39,39,42,0.9),rgb(9,9,11))]">
+          <div className="px-6 text-center">
+            <p className="font-mono text-xs uppercase tracking-wider text-zinc-500">
+              Academic
+            </p>
+            <p className="mt-2 text-lg font-semibold tracking-tight text-zinc-200">
+              {project.name}
+            </p>
+          </div>
+        </div>
+      )}
+
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h4 className="text-xl font-semibold tracking-tight">{project.name}</h4>
+            <p className="mt-1 font-mono text-sm text-primary">{project.tagline}</p>
+          </div>
+          <span className="rounded-full border border-zinc-800 p-2 text-muted-foreground transition-colors group-hover:border-primary group-hover:text-primary">
+            <ArrowUpRight className="size-4" />
+          </span>
+        </div>
+
+        <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
+
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <li
+              key={tag}
+              className="rounded-md border border-zinc-800 bg-zinc-950/60 px-3 py-1 font-mono text-xs text-zinc-300"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </a>
+  )
 }
 
 export function Projects() {
@@ -21,47 +107,65 @@ export function Projects() {
           </h2>
         </div>
 
-        <a
-          href={PROJECT.href}
-          className="group mt-10 grid overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-primary/60 md:grid-cols-2"
-        >
-          <div className="flex flex-col justify-center p-6 md:p-8 lg:p-10">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
-                  {PROJECT.name}
-                </h3>
-                <p className="mt-1 font-mono text-sm text-primary">{PROJECT.tagline}</p>
+        {/* Personal Projects */}
+        <div className="mt-10">
+          <h3 className="mb-6 text-xl font-semibold text-zinc-100">Personal Projects</h3>
+
+          <a
+            href={MACROLENS.href}
+            className="group grid overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-primary/60 md:grid-cols-2"
+          >
+            <div className="flex flex-col justify-center p-6 md:p-8 lg:p-10">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                    {MACROLENS.name}
+                  </h3>
+                  <p className="mt-1 font-mono text-sm text-primary">{MACROLENS.tagline}</p>
+                </div>
+                <span className="rounded-full border border-zinc-800 p-2 text-muted-foreground transition-colors group-hover:border-primary group-hover:text-primary">
+                  <ArrowUpRight className="size-4" />
+                </span>
               </div>
-              <span className="rounded-full border border-border p-2 text-muted-foreground transition-colors group-hover:border-primary group-hover:text-primary">
-                <ArrowUpRight className="size-4" />
-              </span>
+
+              <p className="mt-5 text-pretty leading-relaxed text-muted-foreground md:mt-6">
+                {MACROLENS.description}
+              </p>
+
+              <ul className="mt-6 flex flex-wrap gap-2 md:mt-8">
+                {MACROLENS.tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="rounded-md border border-zinc-800 bg-zinc-950/60 px-3 py-1 font-mono text-xs text-zinc-300"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <p className="mt-5 text-pretty leading-relaxed text-muted-foreground md:mt-6">
-              {PROJECT.description}
-            </p>
+            <div className="relative min-h-[280px] overflow-hidden bg-zinc-950 md:min-h-full">
+              <img
+                src={MACROLENS.image}
+                alt={`${MACROLENS.name} — dark-mode phone mockup`}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </div>
+          </a>
+        </div>
 
-            <ul className="mt-6 flex flex-wrap gap-2 md:mt-8">
-              {PROJECT.tags.map((tag) => (
-                <li
-                  key={tag}
-                  className="rounded-md bg-secondary px-3 py-1 font-mono text-xs text-secondary-foreground"
-                >
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Academic Projects */}
+        <div>
+          <h3 className="mb-6 mt-16 text-xl font-semibold text-zinc-100">
+            Academic &amp; Coursework
+          </h3>
 
-          <div className="relative min-h-[280px] overflow-hidden bg-secondary md:min-h-full">
-            <img
-              src={PROJECT.image}
-              alt={`${PROJECT.name} — dark-mode phone mockup`}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
+          <div className="grid gap-6 md:grid-cols-2">
+            {ACADEMIC_PROJECTS.map((project) => (
+              <AcademicCard key={project.name} project={project} />
+            ))}
           </div>
-        </a>
+        </div>
       </div>
     </section>
   )
