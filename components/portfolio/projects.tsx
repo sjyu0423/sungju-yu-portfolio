@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react"
+import { WorldCupCardDashboard } from "@/components/portfolio/world-cup-simulation-viz"
 
 const MACROLENS = {
   name: "MacroLens",
@@ -10,6 +11,15 @@ const MACROLENS = {
   href: "/projects/macrolens",
 }
 
+const WORLD_CUP = {
+  name: "World Cup ML Predictor",
+  tagline: "Machine Learning & Data Analysis",
+  description:
+    "Engineered a machine learning model and automated tournament simulator for the 2022 FIFA World Cup. Handled feature engineering, model training, and combinatorial bracket progression.",
+  tags: ["Python", "Machine Learning", "Scikit-Learn", "Academic"],
+  href: "/projects/world-cup-ml",
+}
+
 type AcademicProject = {
   name: string
   tagline: string
@@ -19,25 +29,15 @@ type AcademicProject = {
   href: string
 }
 
-const ACADEMIC_PROJECTS: AcademicProject[] = [
-  {
-    name: "pop",
-    tagline: "Mobile Social App",
-    description:
-      "A cross-platform mobile application developed as part of university coursework. Built with Flutter and a real-time Supabase backend to enable spontaneous moment sharing.",
-    tags: ["Flutter", "Supabase", "Dart", "Academic"],
-    image: "/projects/pop.png",
-    href: "#",
-  },
-  {
-    name: "World Cup ML Predictor",
-    tagline: "Machine Learning & Data Analysis",
-    description:
-      "Engineered a machine learning model and automated tournament simulator for the 2022 FIFA World Cup. Handled feature engineering, model training, and combinatorial bracket progression.",
-    tags: ["Python", "Machine Learning", "Scikit-Learn", "Academic"],
-    href: "/projects/world-cup-ml",
-  },
-]
+const POP_PROJECT: AcademicProject = {
+  name: "pop",
+  tagline: "Mobile Social App",
+  description:
+    "A cross-platform mobile application developed as part of university coursework. Built with Flutter and a real-time Supabase backend to enable spontaneous moment sharing.",
+  tags: ["Flutter", "Supabase", "Dart", "Academic"],
+  image: "/projects/pop.png",
+  href: "#",
+}
 
 function AcademicCard({ project }: { project: AcademicProject }) {
   return (
@@ -53,18 +53,7 @@ function AcademicCard({ project }: { project: AcademicProject }) {
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
-      ) : (
-        <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-zinc-800 bg-[radial-gradient(ellipse_at_center,rgba(39,39,42,0.9),rgb(9,9,11))]">
-          <div className="px-6 text-center">
-            <p className="font-mono text-xs uppercase tracking-wider text-zinc-500">
-              Academic
-            </p>
-            <p className="mt-2 text-lg font-semibold tracking-tight text-zinc-200">
-              {project.name}
-            </p>
-          </div>
-        </div>
-      )}
+      ) : null}
 
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-start justify-between gap-4">
@@ -83,6 +72,44 @@ function AcademicCard({ project }: { project: AcademicProject }) {
 
         <ul className="mt-6 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
+            <li
+              key={tag}
+              className="rounded-md border border-zinc-800 bg-zinc-950/60 px-3 py-1 font-mono text-xs text-zinc-300"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </a>
+  )
+}
+
+function WorldCupProjectCard() {
+  return (
+    <a
+      href={WORLD_CUP.href}
+      className="group flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-emerald-500/40 md:col-span-2"
+    >
+      <WorldCupCardDashboard />
+
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h4 className="text-xl font-semibold tracking-tight">{WORLD_CUP.name}</h4>
+            <p className="mt-1 font-mono text-sm text-primary">{WORLD_CUP.tagline}</p>
+          </div>
+          <span className="rounded-full border border-zinc-800 p-2 text-muted-foreground transition-colors group-hover:border-primary group-hover:text-primary">
+            <ArrowUpRight className="size-4" />
+          </span>
+        </div>
+
+        <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground">
+          {WORLD_CUP.description}
+        </p>
+
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {WORLD_CUP.tags.map((tag) => (
             <li
               key={tag}
               className="rounded-md border border-zinc-800 bg-zinc-950/60 px-3 py-1 font-mono text-xs text-zinc-300"
@@ -161,9 +188,8 @@ export function Projects() {
           </h3>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {ACADEMIC_PROJECTS.map((project) => (
-              <AcademicCard key={project.name} project={project} />
-            ))}
+            <WorldCupProjectCard />
+            <AcademicCard project={POP_PROJECT} />
           </div>
         </div>
       </div>
