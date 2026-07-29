@@ -36,7 +36,7 @@ const POP_PROJECT: AcademicProject = {
     "A cross-platform mobile application developed as part of university coursework. Built with Flutter and a real-time Supabase backend to enable spontaneous moment sharing.",
   tags: ["Flutter", "Supabase", "Dart", "Academic"],
   image: "/projects/pop.png",
-  href: "#",
+  href: "/projects/pop",
 }
 
 function AcademicCard({ project }: { project: AcademicProject }) {
