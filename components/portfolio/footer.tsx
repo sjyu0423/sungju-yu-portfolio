@@ -18,9 +18,21 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 const LINKS = [
-  { label: "GitHub", href: "https://github.com", icon: GithubIcon },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: LinkedinIcon },
-  { label: "Email", href: "mailto:sjyu@example.com", icon: Mail },
+  {
+    label: "GitHub",
+    href: "https://github.com/sjyu0423",
+    icon: GithubIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/sj-yu-0423afa/",
+    icon: LinkedinIcon,
+  },
+  {
+    label: "Email",
+    href: "mailto:sjyu0423@gmail.com",
+    icon: Mail,
+  },
 ]
 
 export function Footer() {
@@ -31,10 +43,10 @@ export function Footer() {
         Let&apos;s build something great together.
       </h2>
       <a
-        href="mailto:sjyu@example.com"
+        href="mailto:sjyu0423@gmail.com"
         className="mt-6 inline-flex items-center gap-2 font-mono text-lg text-foreground underline-offset-4 hover:text-primary hover:underline"
       >
-        sjyu@example.com
+        sjyu0423@gmail.com
         <ArrowUpRight className="size-4" />
       </a>
 
