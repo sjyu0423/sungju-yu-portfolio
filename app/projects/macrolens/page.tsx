@@ -86,7 +86,7 @@ export default function MacroLensCaseStudyPage() {
               <ArrowUpRight className="size-4" />
             </a>
             <a
-              href="https://github.com/sjyu0423"
+              href="https://github.com/sjyu0423/MacroLens"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-transparent px-6 py-3 text-sm font-medium transition-colors hover:bg-secondary"
