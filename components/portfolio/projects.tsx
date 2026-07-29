@@ -30,12 +30,12 @@ const ACADEMIC_PROJECTS: AcademicProject[] = [
     href: "#",
   },
   {
-    name: "Machine Learning Project",
+    name: "World Cup ML Predictor",
     tagline: "Machine Learning & Data Analysis",
     description:
-      "Engineered a machine learning model for coursework prediction and analysis. Handled data preprocessing, model training, and performance evaluation.",
+      "Engineered a machine learning model and automated tournament simulator for the 2022 FIFA World Cup. Handled feature engineering, model training, and combinatorial bracket progression.",
     tags: ["Python", "Machine Learning", "Scikit-Learn", "Academic"],
-    href: "#",
+    href: "/projects/world-cup-ml",
   },
 ]
 
