@@ -7,8 +7,8 @@ import {
   Binary,
   LineChart,
   Network,
-  Sparkles,
 } from "lucide-react"
+import { WorldCupSimulationViz } from "@/components/portfolio/world-cup-simulation-viz"
 
 function GithubIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -130,21 +130,7 @@ export default function WorldCupMlCaseStudyPage() {
             </div>
           </dl>
 
-          <div className="relative mt-12 w-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-[0_0_80px_-20px_rgba(16,185,129,0.35)]">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,78,59,0.35),transparent_70%)]" />
-            <div className="relative z-[1] flex aspect-[16/10] w-full flex-col items-center justify-center gap-4 px-6">
-              <div className="flex size-14 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/80 text-emerald-400/80">
-                <Sparkles className="size-6" />
-              </div>
-              <p className="font-mono text-sm text-zinc-400">
-                Bracket / data visualization mockup
-              </p>
-              <p className="max-w-md text-center text-xs text-zinc-500">
-                Placeholder for tournament bracket UI or model performance visuals — same scale and
-                glow treatment as the MacroLens hero.
-              </p>
-            </div>
-          </div>
+          <WorldCupSimulationViz />
         </div>
       </section>
 

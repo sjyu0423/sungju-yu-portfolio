@@ -1,0 +1,181 @@
+const PLAYOFF_ROUNDS = [
+  { round: "Round of 16", team: "Portugal", pct: 56.6 },
+  { round: "Quarter-finals", team: "Portugal", pct: 52.42 },
+  { round: "Semi-finals", team: "Portugal", pct: 48.51 },
+  { round: "Final", team: "England", pct: 44.42 },
+] as const
+
+type GroupStanding = {
+  team: string
+  pts: number
+  advanced: boolean
+}
+
+const GROUPS: { name: string; standings: GroupStanding[] }[] = [
+  {
+    name: "Group A",
+    standings: [
+      { team: "Netherlands", pts: 9, advanced: true },
+      { team: "Senegal", pts: 4, advanced: true },
+      { team: "Ecuador", pts: 4, advanced: false },
+      { team: "Qatar", pts: 0, advanced: false },
+    ],
+  },
+  {
+    name: "Group B",
+    standings: [
+      { team: "England", pts: 9, advanced: true },
+      { team: "USA", pts: 4, advanced: true },
+      { team: "Wales", pts: 2, advanced: false },
+      { team: "Iran", pts: 1, advanced: false },
+    ],
+  },
+  {
+    name: "Group C",
+    standings: [
+      { team: "Argentina", pts: 9, advanced: true },
+      { team: "Poland", pts: 4, advanced: true },
+      { team: "Mexico", pts: 4, advanced: false },
+      { team: "Saudi Arabia", pts: 0, advanced: false },
+    ],
+  },
+  {
+    name: "Group D",
+    standings: [
+      { team: "France", pts: 7, advanced: true },
+      { team: "Denmark", pts: 7, advanced: true },
+      { team: "Tunisia", pts: 1, advanced: false },
+      { team: "Australia", pts: 1, advanced: false },
+    ],
+  },
+]
+
+function formatPct(pct: number) {
+  return `${pct.toFixed(2)}%`
+}
+
+export function WorldCupSimulationViz() {
+  return (
+    <div className="relative mt-12 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 shadow-2xl sm:p-8">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/30 via-zinc-900/80 to-zinc-950"
+      />
+
+      <div className="relative z-[1] space-y-6">
+        {/* Status bar */}
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 font-mono text-xs text-emerald-400">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
+            </span>
+            Model Simulation Complete
+          </span>
+          <p className="font-mono text-xs text-zinc-400">
+            Gradient Boosting • 64 Matches Simulated
+          </p>
+        </div>
+
+        {/* Main 2-column grid */}
+        <div className="grid gap-4 lg:grid-cols-2">
+          {/* Left: Champion + playoff progression */}
+          <div className="flex flex-col gap-4 rounded-xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5">
+            <div className="rounded-lg border border-zinc-800 bg-zinc-900/80 p-4 sm:p-5">
+              <p className="font-mono text-xs uppercase tracking-widest text-zinc-400">
+                Predicted Champion
+              </p>
+              <div className="mt-3 flex flex-wrap items-end justify-between gap-3">
+                <h3 className="text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+                  England
+                </h3>
+                <span className="font-mono text-sm font-semibold text-emerald-400">
+                  44.42% Win Prob
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-zinc-400">
+                Playoff Probability Progression
+              </p>
+              <ul className="space-y-4">
+                {PLAYOFF_ROUNDS.map(({ round, team, pct }) => (
+                  <li key={round} className="group">
+                    <div className="mb-1.5 flex items-baseline justify-between gap-3">
+                      <div className="min-w-0">
+                        <p className="truncate text-sm font-medium text-zinc-200">{round}</p>
+                        <p className="font-mono text-xs text-zinc-500">{team}</p>
+                      </div>
+                      <span className="shrink-0 font-mono text-xs text-emerald-400">
+                        {formatPct(pct)}
+                      </span>
+                    </div>
+                    <div className="h-2 overflow-hidden rounded-full bg-zinc-800">
+                      <div
+                        className="h-full rounded-full bg-emerald-500 transition-all duration-700 group-hover:bg-emerald-400"
+                        style={{ width: `${pct}%` }}
+                      />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Right: Group standings */}
+          <div className="rounded-xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5">
+            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-zinc-400">
+              Group Stage Standings
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {GROUPS.map((group) => (
+                <div
+                  key={group.name}
+                  className="rounded-lg border border-zinc-800 bg-zinc-900/60 p-3 transition-colors hover:border-emerald-500/30"
+                >
+                  <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+                    {group.name}
+                  </p>
+                  <ul className="divide-y divide-zinc-800">
+                    {group.standings.map((row) => (
+                      <li
+                        key={row.team}
+                        className="flex items-center justify-between gap-2 py-1.5 first:pt-0 last:pb-0"
+                      >
+                        <div className="flex min-w-0 items-center gap-2">
+                          {row.advanced ? (
+                            <span
+                              className="inline-flex shrink-0 items-center rounded-full border border-emerald-500/20 bg-emerald-500/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wide text-emerald-400"
+                              title="Advanced"
+                            >
+                              <span className="mr-1 size-1.5 rounded-full bg-emerald-400" />
+                              Adv
+                            </span>
+                          ) : (
+                            <span className="size-1.5 shrink-0 rounded-full bg-zinc-700" />
+                          )}
+                          <span
+                            className={`truncate text-xs ${
+                              row.advanced ? "font-medium text-zinc-100" : "text-zinc-400"
+                            }`}
+                          >
+                            {row.team}
+                          </span>
+                        </div>
+                        <span className="shrink-0 font-mono text-xs text-zinc-300">
+                          {row.pts}
+                          <span className="ml-0.5 text-zinc-600">pts</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
