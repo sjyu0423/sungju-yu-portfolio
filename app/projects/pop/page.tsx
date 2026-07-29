@@ -11,8 +11,8 @@ import {
   Users,
   MessagesSquare,
   Layers,
+  Play,
 } from "lucide-react"
-import { PopPhoneMockup } from "@/components/portfolio/pop-phone-mockup"
 
 function GithubIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -140,8 +140,15 @@ export default function PopCaseStudyPage() {
             </div>
           </dl>
 
-          <div className="relative mt-12 flex items-center justify-center overflow-hidden rounded-2xl border border-zinc-800 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/20 via-zinc-900/80 to-zinc-950 px-6 py-12 shadow-[0_0_80px_-20px_rgba(16,185,129,0.25)] sm:px-12 sm:py-16">
-            <PopPhoneMockup />
+          <div className="relative mt-12 overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/20 via-zinc-900/80 to-zinc-950 px-4 py-10 sm:px-8 sm:py-14">
+            <div className="relative mx-auto flex aspect-video w-full max-w-4xl flex-col items-center justify-center overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 shadow-2xl backdrop-blur-sm">
+              <div className="flex size-16 items-center justify-center rounded-full border border-zinc-700 bg-zinc-950/80 text-zinc-300">
+                <Play className="size-7 fill-current" />
+              </div>
+              <p className="mt-4 font-medium text-zinc-400">
+                Pop App Walkthrough (Embed Here)
+              </p>
+            </div>
           </div>
         </div>
       </section>

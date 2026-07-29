@@ -35,7 +35,7 @@ const POP_PROJECT: AcademicProject = {
   description:
     "A cross-platform mobile application developed as part of university coursework. Built with Flutter and a real-time Supabase backend to enable spontaneous moment sharing.",
   tags: ["Flutter", "Supabase", "Dart", "Academic"],
-  image: "/projects/pop.png",
+  image: "/pop-mockup.jpg",
   href: "/projects/pop",
 }
 
@@ -46,13 +46,11 @@ function AcademicCard({ project }: { project: AcademicProject }) {
       className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-primary/60"
     >
       {project.image ? (
-        <div className="relative aspect-[16/10] overflow-hidden bg-zinc-950">
-          <img
-            src={project.image}
-            alt={`${project.name} — ${project.tagline}`}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
+        <img
+          src={project.image}
+          alt={`${project.name} — ${project.tagline}`}
+          className="h-48 w-full rounded-t-2xl object-cover object-center transition-transform duration-500 group-hover:scale-[1.02] md:h-64"
+        />
       ) : null}
 
       <div className="flex flex-1 flex-col p-6">
