@@ -89,7 +89,7 @@ function WorldCupProjectCard() {
   return (
     <a
       href={WORLD_CUP.href}
-      className="group flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-emerald-500/40 md:col-span-2"
+      className="group flex flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-emerald-500/40"
     >
       <WorldCupCardDashboard />
 
@@ -187,9 +187,9 @@ export function Projects() {
             Academic &amp; Coursework
           </h3>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            <WorldCupProjectCard />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <AcademicCard project={POP_PROJECT} />
+            <WorldCupProjectCard />
           </div>
         </div>
       </div>

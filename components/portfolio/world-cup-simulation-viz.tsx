@@ -191,97 +191,45 @@ export function WorldCupSimulationViz() {
 /** Compact dashboard for the homepage project card visual area */
 export function WorldCupCardDashboard() {
   return (
-    <div className="relative overflow-hidden border-b border-zinc-800 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/30 via-zinc-900/80 to-zinc-950 p-4 sm:p-5">
-      <div className="relative z-[1] space-y-4">
+    <div className="relative max-h-[260px] overflow-hidden border-b border-zinc-800 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/30 via-zinc-900/80 to-zinc-950 p-4 sm:p-5">
+      <div className="relative z-[1] flex h-full flex-col gap-3">
         <SimulationStatusBar compact />
 
-        <div className="grid gap-3 md:grid-cols-2">
-          {/* Champion + progression */}
-          <div className="flex flex-col gap-3 rounded-lg border border-zinc-800 bg-zinc-950/50 p-3">
-            <div className="rounded-md border border-zinc-800 bg-zinc-900/80 p-3">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
-                Predicted Champion
-              </p>
-              <div className="mt-2 flex flex-wrap items-end justify-between gap-2">
-                <p className="text-2xl font-semibold tracking-tight text-zinc-50">England</p>
-                <span className="font-mono text-xs font-semibold text-emerald-400">
-                  44.42% Win Prob
-                </span>
-              </div>
-            </div>
-
-            <ul className="space-y-2.5">
-              {PLAYOFF_ROUNDS.map(({ round, team, pct }) => (
-                <li key={round} className="group">
-                  <div className="mb-1 flex items-baseline justify-between gap-2">
-                    <p className="truncate text-[11px] text-zinc-300">
-                      <span className="text-zinc-200">{round}</span>
-                      <span className="font-mono text-zinc-500"> · {team}</span>
-                    </p>
-                    <span className="shrink-0 font-mono text-[10px] text-emerald-400">
-                      {formatPct(pct)}
-                    </span>
-                  </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-zinc-800">
-                    <div
-                      className="h-full rounded-full bg-emerald-500 transition-all duration-500 group-hover:bg-emerald-400"
-                      style={{ width: `${pct}%` }}
-                    />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Group standings mini-grid */}
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950/50 p-3">
-            <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-zinc-400">
-              Group Stage Standings
+        <div className="rounded-md border border-zinc-800 bg-zinc-900/80 p-3">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
+            Predicted Champion
+          </p>
+          <div className="mt-1.5 flex flex-wrap items-end justify-between gap-2">
+            <p className="text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl">
+              England
             </p>
-            <div className="grid grid-cols-2 gap-2">
-              {GROUPS.map((group) => (
-                <div
-                  key={group.name}
-                  className="rounded-md border border-zinc-800 bg-zinc-900/70 p-2 transition-colors hover:border-emerald-500/30"
-                >
-                  <p className="mb-1.5 font-mono text-[9px] uppercase tracking-wider text-zinc-500">
-                    {group.name}
-                  </p>
-                  <ul className="space-y-1">
-                    {group.standings.map((row) => (
-                      <li
-                        key={row.code}
-                        className="flex items-center justify-between gap-1"
-                        title={row.team}
-                      >
-                        <div className="flex min-w-0 items-center gap-1">
-                          {row.advanced ? (
-                            <span className="inline-flex shrink-0 items-center rounded-full border border-emerald-500/20 bg-emerald-500/10 px-1 py-px font-mono text-[8px] uppercase tracking-wide text-emerald-400">
-                              Adv
-                            </span>
-                          ) : null}
-                          <span
-                            className={`font-mono text-[10px] ${
-                              row.advanced
-                                ? "font-semibold text-emerald-400"
-                                : "text-zinc-500"
-                            }`}
-                          >
-                            {row.code}
-                          </span>
-                        </div>
-                        <span className="font-mono text-[10px] text-zinc-400">
-                          {row.pts}
-                          <span className="text-zinc-600">p</span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <span className="font-mono text-xs font-semibold text-emerald-400">
+              44.42% Win Prob
+            </span>
           </div>
         </div>
+
+        <ul className="min-h-0 flex-1 space-y-2">
+          {PLAYOFF_ROUNDS.map(({ round, team, pct }) => (
+            <li key={round} className="group">
+              <div className="mb-1 flex items-baseline justify-between gap-2">
+                <p className="truncate text-[11px] text-zinc-300">
+                  <span className="text-zinc-200">{round}</span>
+                  <span className="font-mono text-zinc-500"> · {team}</span>
+                </p>
+                <span className="shrink-0 font-mono text-[10px] text-emerald-400">
+                  {formatPct(pct)}
+                </span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-zinc-800">
+                <div
+                  className="h-full rounded-full bg-emerald-500 transition-all duration-500 group-hover:bg-emerald-400"
+                  style={{ width: `${pct}%` }}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )
