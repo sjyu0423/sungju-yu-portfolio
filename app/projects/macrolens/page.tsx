@@ -156,6 +156,25 @@ export default function MacroLensCaseStudyPage() {
         </div>
       </section>
 
+      {/* Q&A Callout */}
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-6xl px-6 py-12 md:px-10 md:py-16">
+          <aside className="my-0 rounded-r-xl border border-zinc-800 border-l-4 border-l-indigo-500 bg-zinc-900/50 p-6 md:p-8">
+            <h2 className="text-xl font-bold tracking-tight md:text-2xl">
+              Wait... SJ, isn&apos;t this just CalAI?
+            </h2>
+            <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
+              Not even close! MacroLens is built to fix the biggest flaw in standard AI trackers:
+              hallucination. By letting you input the exact gram weight from your food scale
+              alongside the photo, the AI is anchored to reality for pinpoint accuracy. It gives
+              you full, granular control to edit the parsed ingredients, it skips the crazy
+              expensive monthly subscriptions, and best of all—it&apos;s custom-built for my exact
+              workflow, so I can ship whatever features I actually want to use!
+            </p>
+          </aside>
+        </div>
+      </section>
+
       {/* Engineering Challenges — Bento */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
