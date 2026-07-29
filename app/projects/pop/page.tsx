@@ -12,6 +12,7 @@ import {
   MessagesSquare,
   Layers,
 } from "lucide-react"
+import { PopPhoneMockup } from "@/components/portfolio/pop-phone-mockup"
 
 function GithubIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -139,15 +140,8 @@ export default function PopCaseStudyPage() {
             </div>
           </dl>
 
-          <div className="relative mt-12 flex min-h-[420px] items-center justify-center overflow-hidden rounded-2xl border border-zinc-800 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/20 via-zinc-900/80 to-zinc-950 p-8 shadow-[0_0_80px_-20px_rgba(16,185,129,0.25)] sm:min-h-[520px] sm:p-12">
-            <div className="relative z-[1] w-full max-w-sm overflow-hidden rounded-[2rem] border border-zinc-700 bg-zinc-950 shadow-2xl ring-1 ring-white/5">
-              <div className="mx-auto mt-3 h-1.5 w-24 rounded-full bg-zinc-800" />
-              <img
-                src="/projects/pop.png"
-                alt="Pop mobile app interface — activity feed and social meetup stream"
-                className="h-auto w-full object-cover object-top"
-              />
-            </div>
+          <div className="relative mt-12 flex items-center justify-center overflow-hidden rounded-2xl border border-zinc-800 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/20 via-zinc-900/80 to-zinc-950 px-6 py-12 shadow-[0_0_80px_-20px_rgba(16,185,129,0.25)] sm:px-12 sm:py-16">
+            <PopPhoneMockup />
           </div>
         </div>
       </section>
