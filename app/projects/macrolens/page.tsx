@@ -118,14 +118,12 @@ export default function MacroLensCaseStudyPage() {
             </div>
           </dl>
 
-          <div className="relative mt-12 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 shadow-xl">
-            <div className="aspect-[16/10] w-full bg-secondary">
-              <img
-                src="/projects/macrolens-placeholder.png"
-                alt="MacroLens app mockup on a floating phone"
-                className="h-full w-full object-cover"
-              />
-            </div>
+          <div className="relative mt-12 flex h-[500px] items-center justify-center overflow-hidden rounded-2xl border border-zinc-800 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-900/20 via-zinc-900/80 to-zinc-950 p-12 md:h-[600px]">
+            <img
+              src="/projects/macrolens-placeholder.png"
+              alt="MacroLens app mockup on a floating phone"
+              className="h-full max-h-[90%] w-auto object-contain drop-shadow-2xl"
+            />
           </div>
         </div>
       </section>
