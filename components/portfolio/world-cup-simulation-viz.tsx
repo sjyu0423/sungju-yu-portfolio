@@ -191,7 +191,7 @@ export function WorldCupSimulationViz() {
 /** Compact dashboard for the homepage project card visual area */
 export function WorldCupCardDashboard() {
   return (
-    <div className="relative aspect-[16/10] overflow-hidden border-b border-zinc-800 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/30 via-zinc-900/80 to-zinc-950 p-3 sm:p-4">
+    <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden border-b border-zinc-800 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/30 via-zinc-900/80 to-zinc-950 p-3 sm:p-4">
       <div className="relative z-[1] flex h-full flex-col gap-2.5">
         <div className="rounded-md border border-zinc-800 bg-zinc-900/80 px-3 py-2.5">
           <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">

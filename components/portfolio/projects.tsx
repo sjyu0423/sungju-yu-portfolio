@@ -46,11 +46,13 @@ function AcademicCard({ project }: { project: AcademicProject }) {
       className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-primary/60"
     >
       {project.image ? (
-        <img
-          src={project.image}
-          alt={`${project.name} — ${project.tagline}`}
-          className="h-48 w-full rounded-t-2xl object-cover object-center transition-transform duration-500 group-hover:scale-[1.02] md:h-64"
-        />
+        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-zinc-950">
+          <img
+            src={project.image}
+            alt={`${project.name} — ${project.tagline}`}
+            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        </div>
       ) : null}
 
       <div className="flex flex-1 flex-col p-6">
@@ -68,7 +70,7 @@ function AcademicCard({ project }: { project: AcademicProject }) {
           {project.description}
         </p>
 
-        <ul className="mt-6 flex flex-wrap gap-2">
+        <ul className="mt-auto flex flex-wrap gap-2 pt-6">
           {project.tags.map((tag) => (
             <li
               key={tag}
@@ -87,7 +89,7 @@ function WorldCupProjectCard() {
   return (
     <a
       href={WORLD_CUP.href}
-      className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-emerald-500/40"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-primary/60"
     >
       <WorldCupCardDashboard />
 
@@ -106,7 +108,7 @@ function WorldCupProjectCard() {
           {WORLD_CUP.description}
         </p>
 
-        <ul className="mt-6 flex flex-wrap gap-2">
+        <ul className="mt-auto flex flex-wrap gap-2 pt-6">
           {WORLD_CUP.tags.map((tag) => (
             <li
               key={tag}
@@ -185,7 +187,7 @@ export function Projects() {
             Academic &amp; Coursework
           </h3>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2">
             <AcademicCard project={POP_PROJECT} />
             <WorldCupProjectCard />
           </div>
