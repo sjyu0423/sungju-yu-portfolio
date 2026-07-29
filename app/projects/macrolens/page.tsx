@@ -77,7 +77,9 @@ export default function MacroLensCaseStudyPage() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#"
+              href="https://macrolens-ruby.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               Live Demo
