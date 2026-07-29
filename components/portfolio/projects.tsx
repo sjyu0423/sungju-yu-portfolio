@@ -46,11 +46,11 @@ function AcademicCard({ project }: { project: AcademicProject }) {
       className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 shadow-xl transition-colors hover:border-primary/60"
     >
       {project.image ? (
-        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-zinc-950">
+        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-[#1c1814]">
           <img
             src={project.image}
             alt={`${project.name} — ${project.tagline}`}
-            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+            className="h-full w-full object-contain object-center p-2 transition-transform duration-500 group-hover:scale-[1.02] sm:p-3"
           />
         </div>
       ) : null}
