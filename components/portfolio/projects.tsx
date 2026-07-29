@@ -7,7 +7,7 @@ const PROJECT = {
     "An AI-powered macro tracker built to eliminate the headache of manually logging meals. Instead of searching databases, you can just snap a photo or speak your food, and the app uses GPT-4o-mini to instantly calculate your exact macros. I engineered it with a secure serverless backend, real-time cloud syncing, and a smart history feature that remembers your go-to meals.",
   tags: ["React", "Vite", "OpenAI", "Supabase", "Vercel Serverless", "PWA"],
   image: "/projects/macrolens-placeholder.png",
-  href: "#",
+  href: "/projects/macrolens",
 }
 
 export function Projects() {
