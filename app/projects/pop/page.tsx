@@ -4,9 +4,13 @@ import type { SVGProps } from "react"
 import {
   ArrowLeft,
   ArrowUpRight,
-  Smartphone,
-  Radio,
-  ImageIcon,
+  MessageSquare,
+  MapPin,
+  Bell,
+  Camera,
+  Users,
+  MessagesSquare,
+  Layers,
 } from "lucide-react"
 
 function GithubIcon(props: SVGProps<SVGSVGElement>) {
@@ -18,28 +22,51 @@ function GithubIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export const metadata: Metadata = {
-  title: "pop — Case Study | SungJu Yu",
+  title: "Pop — Case Study | SungJu Yu",
   description:
-    "A cross-platform mobile social application built for spontaneous moment sharing and real-time interaction.",
+    "A real-time social activity platform engineered for spontaneous meetups, location-based event discovery, and automated group coordination.",
 }
 
-const STACK = ["Flutter", "Dart", "Supabase", "PostgreSQL"] as const
+const STACK = ["Flutter", "Dart", "Supabase", "PostgreSQL", "Google Maps API"] as const
 
 const CHALLENGES = [
   {
-    title: "Cross-Platform UI Architecture",
-    icon: Smartphone,
-    body: "Designed and built a clean, reactive mobile interface in Flutter and Dart. Focused on smooth 60fps animations, custom gesture controls, and adaptive layouts that feel native on both iOS and Android.",
+    title: "Automated Event-Driven Chat Architecture",
+    icon: MessageSquare,
+    body: "Engineered an event-triggered messaging system. When a user RSVPs 'Going' on an activity, a backend trigger instantly subscribes them to that event's dedicated chat room, eliminating the manual overhead of creating and inviting people to group threads.",
   },
   {
-    title: "Real-Time Backend & Supabase Subscriptions",
-    icon: Radio,
-    body: "Leveraged Supabase real-time WebSocket listeners and PostgreSQL Row Level Security (RLS). This allowed live streaming of social interactions and feed updates without expensive polling or server overhead.",
+    title: "Location-Aware Mapping & Privacy Controls",
+    icon: MapPin,
+    body: "Integrated map pin search and current location queries to attach geolocation data to posts. Built granular privacy toggles allowing users to scope activities between a private Friends Feed and a public World Discover Feed.",
   },
   {
-    title: "State Management & Media Optimization",
-    icon: ImageIcon,
-    body: "Implemented robust state management to handle media capture flows seamlessly. Optimized image compression and client-side caching to ensure quick feed renders even on low-bandwidth mobile networks.",
+    title: "Real-Time State & In-App Notification Engine",
+    icon: Bell,
+    body: "Leveraged Supabase real-time WebSockets to sync live RSVP counters, likes, and comment streams. Built an in-app banner notification system to alert users instantly of incoming group chat messages and submission statuses.",
+  },
+] as const
+
+const FEATURES = [
+  {
+    title: "Multimodal Activity Posting",
+    icon: Camera,
+    body: "Support for text, photo attachments, map location pins, and public/private visibility scoping.",
+  },
+  {
+    title: "Instant RSVP & Headcount",
+    icon: Users,
+    body: "One-tap 'Going / Not Going' counters that update live across all feeds.",
+  },
+  {
+    title: "Real-Time Group Messaging",
+    icon: MessagesSquare,
+    body: "Automated group chat creation with live message streaming and active chat lists.",
+  },
+  {
+    title: "Dual-Feed Architecture",
+    icon: Layers,
+    body: "Curated Friends Feed for close contacts and a World Discover Feed with visible usernames for public events.",
   },
 ] as const
 
@@ -68,11 +95,11 @@ export default function PopCaseStudyPage() {
 
           <p className="mt-10 font-mono text-sm text-primary">{"// case study — pop"}</p>
           <h1 className="mt-3 text-balance text-5xl font-semibold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-            pop
+            Pop
           </h1>
           <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-            A cross-platform mobile social application built for spontaneous moment sharing and
-            real-time interaction.
+            A real-time social activity platform engineered for spontaneous meetups, location-based
+            event discovery, and automated group coordination.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -84,13 +111,6 @@ export default function PopCaseStudyPage() {
               View GitHub
               <ArrowUpRight className="size-4" />
             </a>
-            <a
-              href="#"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-800 bg-transparent px-6 py-3 text-sm font-medium transition-colors hover:bg-zinc-900"
-            >
-              Live Demo / APK
-              <ArrowUpRight className="size-4" />
-            </a>
           </div>
 
           <dl className="mt-10 flex flex-col gap-4 border-t border-zinc-800 pt-8 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-4">
@@ -99,7 +119,7 @@ export default function PopCaseStudyPage() {
                 Role
               </dt>
               <dd className="mt-2 font-mono text-sm text-foreground">
-                Mobile Application Engineer
+                Full-Stack Mobile Engineer
               </dd>
             </div>
             <div>
@@ -124,7 +144,7 @@ export default function PopCaseStudyPage() {
               <div className="mx-auto mt-3 h-1.5 w-24 rounded-full bg-zinc-800" />
               <img
                 src="/projects/pop.png"
-                alt="pop mobile app interface — stories feed and social timeline"
+                alt="Pop mobile app interface — activity feed and social meetup stream"
                 className="h-auto w-full object-cover object-top"
               />
             </div>
@@ -139,9 +159,9 @@ export default function PopCaseStudyPage() {
             <p className="font-mono text-sm text-primary">{"// the problem"}</p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">The Problem</h2>
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-              Traditional social networks focus on overly curated, delayed posts. This creates
-              bloated feeds and removes the authentic, spontaneous feeling of sharing everyday
-              moments with close friends.
+              Planning spontaneous hangouts often leads to friction—fragmented details across text
+              threads, messy headcount tracking, and lost location pins. Existing social apps
+              prioritize passive content consumption rather than driving real-world meetups.
             </p>
           </article>
 
@@ -149,9 +169,10 @@ export default function PopCaseStudyPage() {
             <p className="font-mono text-sm text-primary">{"// the solution"}</p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">The Solution</h2>
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-              I engineered &apos;pop&apos;, a fluid cross-platform mobile app built with Flutter. By
-              pairing a fast, responsive UI with real-time Supabase listeners, users can capture,
-              share, and interact with spontaneous fleeting moments instantly.
+              Pop unifies event creation, interactive mapping, and social coordination into a
+              single fluid stream. Users post spontaneous activities with location pins, and
+              clicking &apos;Going&apos; automatically connects attendees into a dedicated
+              real-time group chat.
             </p>
           </article>
         </div>
@@ -165,8 +186,8 @@ export default function PopCaseStudyPage() {
             Engineering Challenges
           </h2>
           <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
-            Shipping a native-feeling social app meant solving UI performance, live backend sync,
-            and media-heavy mobile constraints in one coherent stack.
+            Turning RSVPs into live coordination meant wiring chat automation, geolocation privacy,
+            and real-time feed state into one mobile stack.
           </p>
 
           <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -182,6 +203,39 @@ export default function PopCaseStudyPage() {
                 <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-muted-foreground">
                   {body}
                 </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Capabilities — 2x2 */}
+      <section className="border-b border-zinc-800">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
+          <p className="font-mono text-sm text-primary">{"// capabilities"}</p>
+          <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+            Core Capabilities
+          </h2>
+          <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
+            The product surface spans posting, RSVP, messaging, and dual feeds — each designed to
+            push people from the screen into real-world plans.
+          </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {FEATURES.map(({ title, icon: Icon, body }) => (
+              <article
+                key={title}
+                className="flex gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 shadow-xl transition-colors hover:border-primary/40"
+              >
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-950/60 text-primary">
+                  <Icon className="size-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
+                  <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+                    {body}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
