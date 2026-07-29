@@ -28,19 +28,19 @@ const STACK = ["React", "Serverless", "Supabase", "OpenAI"] as const
 
 const CHALLENGES = [
   {
-    title: "Serverless Security Proxy",
-    icon: Shield,
-    body: "OpenAI keys never leave the server. Client requests hit a Vercel Serverless function that validates the session, injects credentials, and forwards multimodal payloads to the model — keeping secrets out of the browser while still delivering low-latency inference.",
-  },
-  {
-    title: "Multimodal State Orchestration",
+    title: "Architecture-First 'Vibe Coding'",
     icon: Layers,
-    body: "Photo and voice inputs are normalized into one prompt pipeline. Base64 image frames from the camera merge with transcript text from the Voice API, then ship as a single structured request so GPT-4o-mini can estimate macros from either modality — or both at once.",
+    body: "AI coding tools often generate pretty but empty UI shells. To build a real product, I used Gemini as a product design partner to map out the entire system architecture first. By defining data schemas, data collection flows, and building the backend APIs before touching the frontend, I created a structured timeline of building blocks that guaranteed a functional app, not just a mockup.",
   },
   {
-    title: "Supabase & Data Deduplication",
+    title: "Mastering Supabase & Cloud State",
     icon: Database,
-    body: "Daily nutrition lives in chronological daily_logs. Recurring meals are deduplicated into a quick-add history so familiar foods resurface without re-running AI — cutting cost, latency, and friction for the meals you log every week.",
+    body: "I needed a robust backend to handle user logs, deduplication, and daily macro targets. I dove deep into Supabase, learning how to structure relational PostgreSQL schemas and manage cloud state. This ensured that the chronological meal histories and macro tracking logic remain perfectly synced across all devices.",
+  },
+  {
+    title: "Bulletproof API Security",
+    icon: Shield,
+    body: "Handling multimodal AI payloads meant dealing with sensitive API keys. To ensure zero probability of leaks, I couldn't rely on client-side API calls. I audited the security flow and completely re-architected the app to proxy all OpenAI requests through secure Vercel Serverless Functions, implementing strict backend security measures to keep credentials completely isolated.",
   },
 ] as const
 
