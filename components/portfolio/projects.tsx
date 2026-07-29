@@ -35,7 +35,7 @@ const POP_PROJECT: AcademicProject = {
   description:
     "A cross-platform mobile application developed as part of university coursework. Built with Flutter and a real-time Supabase backend to enable spontaneous moment sharing.",
   tags: ["Flutter", "Supabase", "Dart", "Academic"],
-  image: "/pop-mockup.jpg",
+  image: "/projects/pop-hero-photo.png",
   href: "/projects/pop",
 }
 
