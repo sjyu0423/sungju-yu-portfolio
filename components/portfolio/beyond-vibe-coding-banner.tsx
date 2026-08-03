@@ -29,9 +29,10 @@ export function BeyondVibeCodingBanner() {
                 Beyond Vibe Coding.
               </h2>
               <p className="max-w-xl text-lg text-zinc-400">
-                Schools ban it. Modern engineers master it. See how I orchestrate Cursor, Claude,
-                and Codex to architect and ship production-ready software in a fraction of the
-                time.
+                AI tools offer massive leverage for developers, but mastering them requires a
+                shift in mindset. Here is a collection of practical tips and takeaways from my own
+                experience, designed to help you navigate the learning curve and level up your
+                workflow.
               </p>
               <span className="mt-8 inline-flex items-center text-sm font-medium text-teal-400 transition-transform duration-300 group-hover:translate-x-1">
                 Read the Playbook →
