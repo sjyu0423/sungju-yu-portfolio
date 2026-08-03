@@ -1,10 +1,28 @@
 import Link from "next/link"
+import type { ComponentType } from "react"
+import { ClaudeIcon, CodexIcon, CursorIcon } from "@/components/portfolio/ai-tool-icons"
 
-const TOOLS = [
-  { label: "[Claude Icon]", name: "Claude Code", accent: "border-orange-500/40 text-orange-300" },
-  { label: "[Codex Icon]", name: "Codex", accent: "border-emerald-500/40 text-emerald-300" },
-  { label: "[Cursor Icon]", name: "Cursor", accent: "border-sky-500/40 text-sky-300" },
-] as const
+const TOOLS: {
+  name: string
+  accent: string
+  Icon: ComponentType<{ className?: string }>
+}[] = [
+  {
+    name: "Claude Code",
+    accent: "border-orange-500/40 text-orange-300",
+    Icon: ClaudeIcon,
+  },
+  {
+    name: "Codex",
+    accent: "border-emerald-500/40 text-emerald-300",
+    Icon: CodexIcon,
+  },
+  {
+    name: "Cursor",
+    accent: "border-sky-500/40 text-sky-300",
+    Icon: CursorIcon,
+  },
+]
 
 export function BeyondVibeCodingBanner() {
   return (
@@ -62,13 +80,13 @@ export function BeyondVibeCodingBanner() {
                 </p>
 
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {TOOLS.map((tool) => (
+                  {TOOLS.map(({ name, accent, Icon }) => (
                     <span
-                      key={tool.name}
-                      className={`inline-flex items-center gap-2 rounded-full border bg-zinc-900/90 px-3 py-1.5 text-xs font-medium shadow-[0_0_20px_-8px_rgba(99,102,241,0.5)] ${tool.accent}`}
+                      key={name}
+                      className={`inline-flex items-center gap-1.5 rounded-full border bg-zinc-900/90 px-3 py-1.5 text-xs font-medium shadow-[0_0_20px_-8px_rgba(99,102,241,0.5)] ${accent}`}
                     >
-                      <span className="text-[10px] opacity-70">{tool.label}</span>
-                      {tool.name}
+                      <Icon className="size-3.5" />
+                      {name}
                     </span>
                   ))}
                 </div>
