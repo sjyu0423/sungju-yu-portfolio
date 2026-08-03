@@ -33,10 +33,9 @@ export function Skills() {
             <p className="text-pretty leading-relaxed text-muted-foreground">
               I love building practical apps that solve real problems. I enjoy taking on challenging
               technical concepts and figuring out how to implement them into clean, functional
-              software. Beyond just writing code, my biggest strength is product design and seeing
-              the big picture. I dive deep into researching exactly what an app needs to succeed,
-              map out the architecture, and build the right features to create a polished, complete
-              product.
+              software. My superpower is speed-to-market using AI. By mastering Claude Code and
+              Codex, I&apos;m able to accelerate the development cycle—spending less time debugging
+              syntax and more time designing scalable, high-impact features.
             </p>
           </div>
 
