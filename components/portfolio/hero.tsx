@@ -14,11 +14,6 @@ export function Hero() {
         }}
       />
       <div className="relative mx-auto flex min-h-[88svh] max-w-6xl flex-col justify-center px-6 py-24 md:px-10">
-        <p className="mb-6 flex items-center gap-2 font-mono text-sm text-primary">
-          <span className="inline-block h-2 w-2 rounded-full bg-primary" />
-          {"> _ available for new opportunities"}
-        </p>
-
         <h1 className="text-balance text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
           Hi, I&apos;m SungJu <span className="text-muted-foreground">(SJ)</span> Yu.
         </h1>
